@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Roboto+Mono&display=swap');
+
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+body {
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='14' height='14' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(180)'%3E%3Crect width='100%25' height='100%25' fill='rgba(154, 230, 180,1)'/%3E%3Ccircle cx='-15' cy='15' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='-5' cy='25' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='5' cy='15' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='25' cy='15' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='15' cy='25' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='35' cy='25' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='15' cy='15' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='35' cy='15' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='5' cy='25' r='1' fill='rgba(26, 32, 44,1)'/%3E%3Ccircle cx='25' cy='25' r='1' fill='rgba(26, 32, 44,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(246, 241, 241);
+    border-radius: 50%;
+    border: 2px solid black;
+    position: absolute;
+    margin: auto;
+}
+
+.clock, .number_number1, .number_number2, .number_number3, .number_number4, .number_number5, .number_number6, .number_number7, .number_number8, .number_number9, .number_number10, .number_number11, .number_number12 {
+    position: absolute;
+    width: 90vh;
+    height: 90vh;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 3rem;
+}
+
+.clock .number_number1 { --rotation: 30deg; }
+.clock .number_number2 { --rotation: 60deg; }
+.clock .number_number3 { --rotation: 90deg; }
+.clock .number_number4 { --rotation: 120deg; }
+.clock .number_number5 { --rotation: 150deg; }
+.clock .number_number6 { --rotation: 180deg; }
+.clock .number_number7 { --rotation: 210deg; }
+.clock .number_number8 { --rotation: 240deg; }
+.clock .number_number9 { --rotation: 270deg; }
+.clock .number_number10 { --rotation: 300deg; }
+.clock .number_number11 { --rotation: 330deg; }
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: black;
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) *1deg));
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.clock .hand.second {
+    width: 3px;
+    height: 45%;
+    background-color: red;
+}
+
+.clock .hand.minute {
+    width: 7px;
+    height: 40%;
+    background-color: black;
+}
+
+.clock .hand.hour {
+    width: 10px;
+    height: 35%;
+    background-color: black;
+}
